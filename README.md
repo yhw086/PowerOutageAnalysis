@@ -130,9 +130,9 @@ Alternative hypothesis: the distribution of the number of affected customers is 
 
 Observed Statistics: the absolute difference between Customers.affected and missing_duration.
 
-We use permutation test to shuffle the missingness of number of affected customers 1000 times. We can get 1000 simulating absolute differences. Then we compare these 1000 absolute differences to the observed difference, and calculate the p-value that is the probability of observing a absolute difference as extreme or more extreme than the observed difference, assuming the null hypothesis is true. Observed statistic:  20599.732900432893
+We use permutation test to shuffle the missingness of number of affected customers 1000 times. We can get 1000 simulating absolute differences. Then we compare these 1000 absolute differences to the observed difference, and calculate the p-value that is the probability of observing a absolute difference as extreme or more extreme than the observed difference, assuming the null hypothesis is true. Observed statistic:  20599.733
 
-Finally, we get the p-value, which is 0.684. As 0.05 is our significance threshold, since 0.684 > 0.05, we fail to reject the null hypothesis that the distribution of the affected customers is the same whether power outage duration is missing or not. The result suggests that the distribution of the number of customers affected is not statistically different between the groups with missing and non-missing outage duration data. In essence, the missingness of power outage duration data does not appear to be related to the number of customers affected.
+Finally, we get the p-value, which is 0.68. As 0.05 is our significance threshold, since 0.68 > 0.05, we fail to reject the null hypothesis that the distribution of the affected customers is the same whether power outage duration is missing or not. The result suggests that the distribution of the number of customers affected is not statistically different between the groups with missing and non-missing outage duration data. In essence, the missingness of power outage duration data does not appear to be related to the number of customers affected.
 
 Based on our test result, we can see that the missingness of the power outage duration **does not depend on the affected customers**.
 
@@ -150,9 +150,9 @@ Observed Statistics: the Total Variation Distance(TVD) between two categorical f
 
 We use permutation test to shuffle the missingness of climate category 1000 times. We can get 1000 simulating TVDs. Then we compare these 1000 TVDs to the observed TVD, and calculate the p-value that is the probability of observing a TVD as extreme or more extreme than the observed TVD, assuming the null hypothesis is true.
 
-Observed statistic: 0.2088656600851723
+Observed statistic: 0.20887
 
-Finally, we get the p-value, which is 0.002. As 0.05 is our significance threshold, since 0.002 < 0.05, we reject the null hypothesis that the distribution of the climate(normal and extreme) is the same whether power outage duration is missing or not. The analysis indicates that the distribution of climate categories is statistically different between cases with and without missing power outage duration data. The result suggests a dependency of the missingness of power outage duration on the climate category.
+Finally, we get the p-value, which is 0.001. As 0.05 is our significance threshold, since 0.001 < 0.05, we reject the null hypothesis that the distribution of the climate(normal and extreme) is the same whether power outage duration is missing or not. The analysis indicates that the distribution of climate categories is statistically different between cases with and without missing power outage duration data. The result suggests a dependency of the missingness of power outage duration on the climate category.
 
 Based on our test result, we can see that the missingness of the power outage duration **depends on the climate**.
 
@@ -176,12 +176,12 @@ Initial analysis showed outliers in the data for both 'Extreme' and 'Normal' cli
 
 #### Observed Statistics Before Outlier Removal:
 Observed Difference in Means: 186.81
-P-Value: 0.5569
+P-Value: 0.5618
 This initial result, with a p-value higher than the conventional alpha level of 0.05, suggested failing to reject the null hypothesis.
 
 #### Observed Statistics After Outlier Removal:
 Observed Difference in Means: 91.42
-P-Value: 0.326
+P-Value: 0.3105
 Post outlier removal, the observed difference in means decreased significantly, and the p-value, while lower, still suggested failing to reject the null hypothesis.
 
 Permutation Test: A permutation test with 10,000 shuffles was used to assess the probability of observing an absolute difference in power outage durations as extreme as, or more extreme than, the observed differences, under the null hypothesis.
@@ -195,6 +195,6 @@ The analysis, therefore, fails to reject the null hypothesis in both cases.
 
 
 ## Conclusion:
-Finally, we get the p-value, which is 0.5467. As 0.05 is our significance threshold, since 0.5467 > 0.05, we fail to reject the null hypothesis that the average duration of power outages during 'Extreme' climate conditions is the same as during 'Normal' climate conditions. 
+By detecting the outliers, we find that the number of outliers in Outage.duration is 144. Then we would like to address the situation with the original data and with the data removed outilers. Therefore, we find that the observed difference for the original data is 186.81, while the observed diffrence for the data removed the outliers is 91.42. The p-value is 0.5618 for the original data, and 0.334 for the data removed outliers. Fianlly, as 0.05 is our significance threshold, both 0.5618 and 0.3105 are greater than the 0.05, then we fail to reject the null hypothesis that the average duration of power outages during 'Extreme' climate conditions is the same as during 'Normal' climate conditions. Since the p-value for the data removed outliers is less than that of the original data, it is possible that probability of observing a absolute difference as extreme or more extreme in outlier-removed data will be less than the original data. This could be resonable. Consequently, based on the data and the statistical test conducted, we conclude that there is no statistically significant difference in the average duration of power outages between 'Extreme' and 'Normal' climate conditions.
 
-This result could be resonable. Since there are some other possible reason such as internet attack to influence the power outage duration. Therefore, even in the normal climate, this will still increase the durations of power outages.
+While the statistical analysis suggests similar outage durations across climate conditions, it's important to acknowledge the role of other potential factors. For instance, external influences like cyberattacks or infrastructure vulnerabilities could affect outage durations, irrespective of climate conditions. As with any statistical analysis, this conclusion is limited to the scope of the data and the specific statistical method used. It does not rule out the possibility of climate having an impact under different conditions or in different contexts.
