@@ -16,7 +16,7 @@ Research Question
 Power outages pose significant challenges and have a profound impact on our environment. Understanding the factors that influence the duration of power outages is crucial for developing effective strategies to enhance restoration times and minimize disruptions. In this project, we aim to explore the correlation between normal and extreme weather conditions and the duration of power outages.
 
 ### Data Source:
-The dataset used in this study is obtained from Purdue University's laboratory and is titled "Major Power Outage Risks in the U.S.". It comprises 1,534 records, each representing a power outage event in the United States, and includes 56 columns. To focus on the relationship between climate and power outages, we have selected 7 key columns for analysis:including `Year`, `Anomaly.level`, `Climate.category`, `Cause.category`, `Cause.category.detail`, `Outage.duration`, `Customers.affected`, `Climate`. 
+The dataset used in this study is obtained from Purdue University's laboratory and is titled "Major Power Outage Risks in the U.S.". It comprises 1,534 records, each representing a power outage event in the United States, and includes 55 columns. To focus on the relationship between climate and power outages, we have selected 8 key columns for analysis:including `Year`, `Anomaly.level`, `Climate.category`, `Cause.category`, `Cause.category.detail`, `Outage.duration`, `Customers.affected`, `Climate`. 
 
 - `Year`: Indicates the year when the outage event occurred.
 - `Anomaly.level`: This represents the oceanic El Niño/La Niña (ONI) index referring to the cold and warm episodes by season. It is estimated as a 3-month running mean of ERSST.v4 SST anomalies in the Niño 3.4 region (5°N to 5°S, 120–170°W).
@@ -47,18 +47,18 @@ By conducting this investigation, we aim to provide valuable information that ca
 ---
 ## Cleaning Data and Exploratory Data Analysis
 ### Data Cleaning
-In order to increase the readability and narrow the information we need from the dataset, we follow the following steps to clean our DataFrame: 
+In order to increase the readability and narrow down the information we need from the dataset, we follow the following steps to clean our DataFrame: 
 
-1. **Load the data in pandas as a csv file**: The data is given as an Excel file. We inspect the data and decide to skip the first 5 rows which are description of the dataset. The first column `variables` and the first row are descriptions of the columns and `OBS` indicates the id of the records. We drop them since they are not necessary. We also change each column name to lowercase starting with a capital letter. This step increases the readability of the dataset. 
+1. **Load the data in pandas as a csv file**: We begin by loading the dataset from an Excel file into a Pandas DataFrame. We inspect the data and decide to skip the first 5 rows which are descriptions of the dataset. The first column `variables` and the first row are descriptions of the columns. Additionally, the `OBS` column represents record identifiers. Since these elements do not contribute to our analysis, we drop them from the DataFrame. To improve readability, we transform each column name to lowercase, with words starting with a capital letter. This step simplifies column naming conventions. 
 
-2. **Add column `Climate`**: Since we would like to look at how extreme and normal conditions influence the outage durations in the United States, we add a column `Climate` that replaces all 'warm' and 'cold' conditions by 'extreme' since they are occurences of El Niño and La Niña, as defined by the Oceanic Niño Index. We keep 'normal' as it is. This step allows as to investigate the climate conditions more relevant to our research question. 
+2. **Add column `Climate`**: As our analysis focuses on understanding how extreme and normal climate conditions influence power outage durations in the United States, we introduce a new column, `Climate`. In this `Climate` column, we replace occurrences of 'warm' and 'cold' conditions with 'extreme.' These conditions are associated with El Niño and La Niña events, as defined by the Oceanic Niño Index. We keep 'normal' conditions as they are. This step allows as to investigate the climate conditions more relevant to our research question. 
 
-3. **Convert type of year from float to int**: This step is to make the information of the column `year` more accurate, we convert the type of the column `Year` from float to int.
+3. **Convert type of year from float to int**: To ensure the accuracy of the 'Year' column, we convert its data type from float to int. This adjustment provides more precise information regarding the year in which each power outage event occurred. 
 
 4. **Keep only columns relevant to the research question**: Because the original dataset contains 55 variables and we decide to keep only the columns relevant to our study. We keep the columns `Year`, 
-`Anomaly.level`, `Climate.category`, `Cause.category`, `Outage.duration`, `Customers.affected`, `Climate`.
+`Anomaly.level`, `Climate.category`, `Cause.category`, `Cause.category.detail`, Outage.duration`, `Customers.affected`, `Climate`.
 
-We will remove the outliers after investigating the columns more closely. 
+Our next step involves the removal of outliers, where we will closely examine and address any anomalous data points that may affect the accuracy and reliability of our analysis.
 
 After data cleaning, the combined DataFrame looks like the following (only showing the first 5 rows for illustration, the actual combined DataFrame has 1534 rows):
 
@@ -75,7 +75,7 @@ After data cleaning, the combined DataFrame looks like the following (only showi
 With data cleaned for analysis, we looked at the overall frequency of the climate categories and the distribution of outage durations. 
 
 #### Distribution of Climate Categories
-This is a vertical bar plot showing the distribution of Climate categories ('normal' and 'extreme') on the x-axis and the Number of Occurences' of each climate category on the y-axis. There is approximately a balanced distribution. Specifically, it indicates that the power outages recorded in the dataset are not predominantly occurring in one type of climate over another. A 50-50 split in the Climate variable implies that any patterns, correlations, or causal relationships identified between climate conditions and power outages are reflective of a broad range of conditions. This balanced representation enhances the generalizability of the findings. It ensures that the conclusions drawn are not biased towards a particular climatic condition. 
+This is a vertical bar plot showing the distribution of Climate categories ('normal' and 'extreme') on the x-axis and the Number of Occurences' of each climate category on the y-axis. There is approximately a balanced distribution. Specifically, it indicates that the power outages recorded in the dataset are not predominantly occurring in one type of climate over another. An almost 50-50 split in the Climate variable implies that any patterns, correlations, or causal relationships identified between climate conditions and power outages are reflective of a broad range of conditions. This balanced representation enhances the generalizability of the findings. It ensures that the conclusions drawn are not biased towards a particular climatic condition. 
 
 <iframe src="figures/uni_climate.html" width=800 height=600 frameBorder=0></iframe>
 
