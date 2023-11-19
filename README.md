@@ -74,7 +74,22 @@ The histogram provided shows the distribution of 'Outage Duration' on the x-axis
 <iframe src="figures/uni_duration.html" width=800 height=600 frameBorder=0></iframe>
 
 ### Bivariate Analysis
-T
+
+#### Outage Duration Count Across Anomaly Levels
+The line chart titled "Outage Duration Count Across Anomaly Levels" plots the count of power outage durations against various anomaly levels. The x-axis represents the anomaly levels, likely measured by the Oceanic Niño Index, with values ranging from less negative (La Niña conditions) to positive (El Niño conditions). The y-axis quantifies the number of outages recorded at each of these levels.
+
+From the chart, we can observe a significant peak around the anomaly level of -0.5, suggesting a high count of outages when conditions are transitioning towards La Niña. This peak indicates that the onset of such climatic conditions might be associated with an increased number of power outages. Conversely, at higher anomaly levels indicative of El Niño conditions, the count of outages appears to be relatively. Overall, it appears that there are relatively more major outages hapening in normal climate conditions. This chart does suggest a potential correlation between the climatic conditions expressed by anomaly levels and the frequency of power outages. 
+
+<iframe src="figures/bivar_line.html" width=800 height=600 frameBorder=0></iframe>
+
+#### Climate Category Count by Year
+The bar chart "Climate Category Count by Year" presents a comparison of the counts of power outages classified by climate categories—'extreme' and 'normal'—across different years. Each horizontal bar pair represents a year, with the count of outages for each climate category depicted in different colors.
+
+From the visualization, we observe that in most years, the counts of outages in 'extreme' climate conditions tend to be higher than those in 'normal' conditions. This might suggest that extreme weather events, which are likely to include conditions such as heatwaves, or storms, can cause more frequent power disruptions. We also notice there are years that power outages only happened under one climate category(e.g. 2013, 2015). 
+However, the chart also shows variability across years. Some years have a relatively balanced count between 'extreme' and 'normal' conditions, while others have a pronounced difference. Notably, in the earlier years of the dataset, the count of outages in normal conditions appears to be comparable or even higher than in extreme conditions, but this trend shifts in later years where extreme conditions account for a higher proportion of outages.
+
+
+<iframe src="figures/bivar_group.html" width=800 height=600 frameBorder=0></iframe>
 
 ### Interesting Aggregates
 S
@@ -90,15 +105,31 @@ To better understand and possibly reclassify this missingness as MAR, additional
 This
 
 #### 1. (MCAR)
-Null Hypothesis:
+Null Hypothesis: the distribution of the number of affected customers is the same whether power outage duration is missing or not.
 
-**Therefore, we conclude that.**
+Alternative hypothesis: the distribution of the number of affected customers is not the same whether power outage duration is missing or not.
+
+Observed Statistics: the absolute difference between customers.affected and missing_duration.
+
+We use permutation test to shuffle the missingness of number of affected customers 1000 times. We can get 1000 simulating absolute differences. Then we compare these 1000 absolute differences to the observed difference, and calculate the p-value that is the probability of observing a absolute difference as extreme or more extreme than the observed difference, assuming the null hypothesis is true.
+
+Finally, we get the p-value, which is 0.684. As 0.05 is our significance threshold, since 0.684 > 0.05, we fail to reject the null hypothesis that the distribution of the affected customers is the same whether power outage duration is missing or not. Based on our test result, we can see that the missingness of the power outage duration does not depend on the affected customers.
+
+**Therefore, we conclude that the missingness of the power outage duration does not depend on the affected customers.**
 
 #### 2. (MAR)
 
-Null Hypothesis: 
+Null Hypothesis: the distribution of the climate(normal and extreme) is the same whether power outage duration is missing or not.
 
-**Hence, we conclude that**
+Alternative hypothesis: the distribution of the climate(normal and extreme) is not the same whether power outage duration is missing or not.
+
+Observed Statistics: the Total Variation Distance(TVD) between two categorical features.
+
+We use permutation test to shuffle the missingness of climate category 1000 times. We can get 1000 simulating TVDs. Then we compare these 1000 TVDs to the observed TVD, and calculate the p-value that is the probability of observing a TVD as extreme or more extreme than the observed TVD, assuming the null hypothesis is true.
+
+Finally, we get the p-value, which is 0.002. As 0.05 is our significance threshold, since 0.002 < 0.05, we reject the null hypothesis that the distribution of the climate(normal and extreme) is the same whether power outage duration is missing or not. Based on our test result, we can see that the missingness of the power outage duration depends on the climate.
+
+**Hence, we conclude that the missingness of the power outage duration depends on the climate.**
 
 ---
 ## Hypothesis Testing
