@@ -4,7 +4,7 @@ This is a project for DSC80.
 By Jiayi Zhu & Yihuan Wang. 
 
 ## Project Overview
-This is a data science project on investigating how climate conditions influence the power outages in the United States? 
+This is a data science project on investigating how climate conditions influence the power outages in the United States.  
 The dataset used to investigate the topic can be find [here](https://www.sciencedirect.com/science/article/pii/S2352340918307182#s0015). This project is for DSC80 at UCSD.
 
 ---
@@ -13,9 +13,10 @@ Research Question
 **"Does the occurrence of 'Extreme' climate conditions (including both El Niño and La Niña), as defined by the Oceanic Niño Index,  versus 'Normal' conditions significantly influence the average duration of power outages in the United States?"**.
 
 ### Introduction to the Datasets in this Study
-Power outage represents a significant challenge, which impacts to our environment. Understanding the factors influencing power outage duration is significant for developing effective strategies to enhance the time to restoration and minimize its disruptions. In this project, we aim to investigate the relationship between the normal and extreme conditions and the duration of power outages.
+Power outages pose significant challenges and have a profound impact on our environment. Understanding the factors that influence the duration of power outages is crucial for developing effective strategies to enhance restoration times and minimize disruptions. In this project, we aim to explore the correlation between normal and extreme weather conditions and the duration of power outages.
 
-Before investigating our project, we read the excel data into the notebook. The dataset is sourced from the Purdue University laboratory, titled Major Power Outage Risks in the U.S.. The dataset has 1534 rows which represents the number of time the power outage happen in the U.S. The dataset has 56 columns. Since we aim to learn the relationship between the climate and power outages, we select 7 columns to use, including 'Year', 'Anomaly.level', 'Climate.category', 'Cause.category', 'Cause.category.detail', 'Outage.duration', 'Customers.affected', 'Climate'. 
+### Data Source:
+The dataset used in this study is obtained from Purdue University's laboratory and is titled "Major Power Outage Risks in the U.S.". It comprises 1,534 records, each representing a power outage event in the United States, and includes 56 columns. To focus on the relationship between climate and power outages, we have selected 7 key columns for analysis:including `Year`, `Anomaly.level`, `Climate.category`, `Cause.category`, `Cause.category.detail`, `Outage.duration`, `Customers.affected`, `Climate`. 
 
 - `Year`: Indicates the year when the outage event occurred.
 - `Anomaly.level`: This represents the oceanic El Niño/La Niña (ONI) index referring to the cold and warm episodes by season. It is estimated as a 3-month running mean of ERSST.v4 SST anomalies in the Niño 3.4 region (5°N to 5°S, 120–170°W).
@@ -24,13 +25,22 @@ Before investigating our project, we read the excel data into the notebook. The 
 - `Cause.category.detail`: Detailed description of the event categories causing the major power outages.
 - `Outage.duration`: Duration of outage events (in minutes).
 - `Customers.affected`: Number of customers affected by the power outage event.
-- `Climate`: Replaces all 'warm' and 'cold' conditions in 'Limate.category' column by 'extreme', keep 'normal' as it is, according to Oceanic Niño Index.
+- `Climate`: Replaces all 'warm' and 'cold' conditions in `Climate.category` column by 'extreme', keep 'normal' as it is, according to Oceanic Niño Index.
 
-After setting the dataset, we begin to process the data. Firstly, we will do the Data cleaning and conduct the exploratory data analysis, including Univariate Analysis, Bivariate Analysis, and interesting aggregates.
+### Data Preprocessing:
+We have replaced all occurrences of "warm" and "cold" conditions in the `Climate Category` column with "extreme," while retaining "normal" as it is, based on the Oceanic Niño Index.
+Data Analysis Process:
 
-Later then, we are going to assess the missingness analysis to analysis the column's missing dependency. In the missingness analysis, we will first discuss the NMAR, which is 'Cause.category.detail`. Then we will discuss the MCAR and MAR analysis, and we mainly implement the test to explore the dependency of the missing power outage duration on the 'Climate' and 'Customers.affected' columns.
+### Data Cleaning: 
+We begin by cleaning the dataset and conducting exploratory data analysis, including univariate and bivariate analysis, as well as exploring interesting aggregates.
 
-Moreover, we generate the hypothesis test according to the research question. We would analyze if the average duration of power outages during 'Extreme' climate conditions is the same as during 'Normal' climate conditions. Our research question is important, since it addresses the immediate impact of climate on power outages and also contributes valuable insights for proactive planning and risk reduction in the face of improving climate patterns. This investigation can enhance the resilience of power infrastructures in diverse climatic scenarios.
+### Missingness Analysis: 
+We assess missing data and dependencies within the dataset. This includes analyzing the `Cause.category.detail` column for Not Missing at Random (NMAR) patterns and testing for Missing Completely at Random (MCAR) and Missing at Random (MAR) in relation to the `Climate` and `Customers.affected` columns. 
+
+### Hypothesis Testing: 
+We formulate hypothesis tests to answer specific research questions. One such question is whether the average duration of power outages during "Extreme" climate conditions is statistically different from that during "Normal" climate conditions. This analysis is vital as it sheds light on the immediate impact of climate on power outages and contributes valuable insights for proactive planning and risk reduction. It has the potential to enhance the resilience of power infrastructures under diverse climatic scenarios. 
+
+By conducting this investigation, we aim to provide valuable information that can inform decision-makers and stakeholders in the power industry, helping them better understand the relationship between climate conditions and power outage durations and enabling them to develop strategies for improved power grid resilience and reliability.
 
 
 ---
