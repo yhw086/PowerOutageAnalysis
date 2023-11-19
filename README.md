@@ -1,4 +1,4 @@
-# PowerOutageAnalysis
+# Power Outage Analysis
 This is a project for DSC80. 
 
 By Jiayi Zhu & Yihuan Wang. 
@@ -12,7 +12,7 @@ The dataset used to investigate the topic can be find [here](https://www.science
 Research Question
 **"Does the occurrence of 'Extreme' climate conditions (including both El Niño and La Niña), as defined by the Oceanic Niño Index,  versus 'Normal' conditions significantly influence the average duration of power outages in the United States?"**.
 
-### Introduction to the Datasets in this Study
+### Introduction to the Datasets in this Study and Overview of project
 Power outages pose significant challenges and have a profound impact on our environment. Understanding the factors that influence the duration of power outages is crucial for developing effective strategies to enhance restoration times and minimize disruptions. In this project, we aim to explore the correlation between normal and extreme weather conditions and the duration of power outages.
 
 ### Data Source:
@@ -38,8 +38,9 @@ We begin by cleaning the dataset and conducting exploratory data analysis, inclu
 We assess missing data and dependencies within the dataset. This includes analyzing the `Cause.category.detail` column for Not Missing at Random (NMAR) patterns and testing for Missing Completely at Random (MCAR) and Missing at Random (MAR) in relation to the `Climate` and `Customers.affected` columns. 
 
 ### Hypothesis Testing: 
-We formulate hypothesis tests to answer specific research questions. One such question is whether the average duration of power outages during "Extreme" climate conditions is statistically different from that during "Normal" climate conditions. This analysis is vital as it sheds light on the immediate impact of climate on power outages and contributes valuable insights for proactive planning and risk reduction. It has the potential to enhance the resilience of power infrastructures under diverse climatic scenarios. 
+We formulate hypothesis tests to answer specific research questions. One such question is **whether the average duration of power outages during "Extreme" climate conditions is statistically different from that during "Normal" climate conditions.** This analysis is vital as it sheds light on the immediate impact of climate on power outages and contributes valuable insights for proactive planning and risk reduction. It has the potential to enhance the resilience of power infrastructures under diverse climatic scenarios. 
 
+### Why people should care about this investigation
 By conducting this investigation, we aim to provide valuable information that can inform decision-makers and stakeholders in the power industry, helping them better understand the relationship between climate conditions and power outage durations and enabling them to develop strategies for improved power grid resilience and reliability.
 
 
