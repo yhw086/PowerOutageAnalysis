@@ -119,9 +119,11 @@ Alternative hypothesis: the distribution of the number of affected customers is 
 
 Observed Statistics: the absolute difference between customers.affected and missing_duration.
 
-We use permutation test to shuffle the missingness of number of affected customers 1000 times. We can get 1000 simulating absolute differences. Then we compare these 1000 absolute differences to the observed difference, and calculate the p-value that is the probability of observing a absolute difference as extreme or more extreme than the observed difference, assuming the null hypothesis is true.
+We use permutation test to shuffle the missingness of number of affected customers 1000 times. We can get 1000 simulating absolute differences. Then we compare these 1000 absolute differences to the observed difference, and calculate the p-value that is the probability of observing a absolute difference as extreme or more extreme than the observed difference, assuming the null hypothesis is true. Observed statistics:  20599.732900432893
 
 Finally, we get the p-value, which is 0.684. As 0.05 is our significance threshold, since 0.684 > 0.05, we fail to reject the null hypothesis that the distribution of the affected customers is the same whether power outage duration is missing or not. Based on our test result, we can see that the missingness of the power outage duration does not depend on the affected customers.
+
+<iframe src="figures/perm_test_diff.html" width=800 height=600 frameBorder=0></iframe>
 
 **Therefore, we conclude that the missingness of the power outage duration does not depend on the affected customers.**
 
@@ -135,7 +137,11 @@ Observed Statistics: the Total Variation Distance(TVD) between two categorical f
 
 We use permutation test to shuffle the missingness of climate category 1000 times. We can get 1000 simulating TVDs. Then we compare these 1000 TVDs to the observed TVD, and calculate the p-value that is the probability of observing a TVD as extreme or more extreme than the observed TVD, assuming the null hypothesis is true.
 
+Observed statistics: 0.2088656600851723
+
 Finally, we get the p-value, which is 0.002. As 0.05 is our significance threshold, since 0.002 < 0.05, we reject the null hypothesis that the distribution of the climate(normal and extreme) is the same whether power outage duration is missing or not. Based on our test result, we can see that the missingness of the power outage duration depends on the climate.
+
+<iframe src="figures/mar.html" width=800 height=600 frameBorder=0></iframe>
 
 **Hence, we conclude that the missingness of the power outage duration depends on the climate.**
 
@@ -151,6 +157,8 @@ Observed Statistics: the absolute difference of power outage duration between ex
 According to the analysis on EDA and univariate duration plot above, we can get that there are some outliers in the data of extreme climate and normal climate. Therefore, we would remove these outliers to make the distribution of each climate more precisely.
 
 We use permutation test to shuffle the climate 10000 times. We can get 10000 simulating absolute differences. Then we compare these 10000 absolute differences to the observed difference 186.81, and calculate the p-value that is the probability of observing a absolute difference as extreme or more extreme than the observed difference, assuming the null hypothesis is true.
+
+<iframe src="figures/bivar_group.html" width=800 height=600 frameBorder=0></iframe>
 
 
 ## Conclusion:
