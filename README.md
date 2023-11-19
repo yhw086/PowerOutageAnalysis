@@ -51,7 +51,7 @@ We will remove the outliers after investigating the columns more closely.
 
 After data cleaning, the combined DataFrame looks like the following (only showing the first 5 rows for illustration, the actual combined DataFrame has 1534 rows):
 
-| Year | Anomaly.level | Climate.category |   Cause.category   | Cause.category.detal | Outage.duration | Customers.affected | Climate |
+| Year | Anomaly.level | Climate.category |   Cause.category   | Cause.category.detail| Outage.duration | Customers.affected | Climate |
 |-----:|--------------:|:-----------------|-------------------:|---------------------:|----------------:|-------------------:|--------:|
 | 2011 |     -0.3      | 	normal        | severe weather     |		NaN		      |	     3060   	|		70000.0	     | normal  |
 | 2014 |     -0.1      | 	normal        | intentional attack |	   vandalism	  |       1         |		NaN			 | normal  |
