@@ -55,7 +55,7 @@ In order to increase the readability and narrow down the information we need fro
 3. **Convert type of year from float to int**: To ensure the accuracy of the 'Year' column, we convert its data type from float to int. This adjustment provides more precise information regarding the year in which each power outage event occurred. 
 
 4. **Keep only columns relevant to the research question**: Because the original dataset contains 55 variables we decided to keep only the columns relevant to our study. We keep the columns `Year`, 
-`Anomaly.level`, `Climate.category`, `Cause.category`, `Cause.category.detail`, Outage.duration`, `Customers.affected`, `Climate`.
+`Anomaly.level`, `Climate.category`, `Cause.category`, `Cause.category.detail`, `Outage.duration`, `Customers.affected`, `Climate`.
 
 Our next step involves the removal of outliers, where we will closely examine and address any anomalous data points that may affect the accuracy and reliability of our analysis.
 
@@ -118,7 +118,7 @@ The 'warm' category has the highest mean duration at approximately 2817 minutes.
 ### NMAR Analysis
 We believe that the `Cause.category.detail` column in the power outage dataset is a prime candidate for data that might be Not Missing at Random (NMAR). This column contains detailed descriptions of the event categories causing the major power outages. This dataset was acquired by using different publicly available datasets. We believe that some of the raw data containing information regarding detailed cause categories might be missing for sensitive or controversial outages (e.g., due to sabotage or internal failures) that a utility company might not want to disclose. Utility companies may be inclined to withhold specific details that could lead to public relations issues, or reveal vulnerabilities in their infrastructure. 
 
-To better understand and possibly reclassify this missingness as MAR, additional data would be necessary. This could include internal reports, regulatory filings, or third-party investigations. Such information might provide the necessary context to determine if the missingness is related to the causes of outages or if it can be explained by observed variables within the dataset. 
+To better understand and possibly reclassify this missingness as NMAR, additional data would be necessary. This could include internal reports, regulatory filings, or third-party investigations. Such information might provide the necessary context to determine if the missingness is related to the causes of outages or if it can be explained by observed variables within the dataset. 
 
 ### Missingness Dependency
 
@@ -183,10 +183,11 @@ Observed Difference in Means: 91.42
 P-Value: 0.3105
 Post outlier removal, the observed difference in means decreased significantly, and the p-value, while lower, still suggested failing to reject the null hypothesis.
 
-Permutation Test: A permutation test with 10,000 shuffles was used to assess the probability of observing an absolute difference in power outage durations as extreme as, or more extreme than, the observed differences, under the null hypothesis.
+**Permutation Test:** A permutation test with 10,000 shuffles was used to assess the probability of observing an absolute difference in power outage durations as extreme as, or more extreme than, the observed differences, under the null hypothesis.
 
 Before Removing Outliers: The data suggested no significant difference in the average duration of power outages between the two climate conditions.
 <iframe src="figures/hypo1.html" width=800 height=600 frameBorder=0></iframe>
+
 After Removing Outliers: The decrease in the observed difference and the p-value further support the conclusion that there is no statistically significant difference in power outage durations between 'Extreme' and 'Normal' climate conditions.
 The analysis, therefore, fails to reject the null hypothesis in both cases. 
 
@@ -194,6 +195,6 @@ The analysis, therefore, fails to reject the null hypothesis in both cases.
 
 
 ## Conclusion:
-By detecting the outliers, we find that the number of outliers in Outage.duration is 144. Then we would like to address the situation with the original data and with the data removed outilers. Therefore, we find that the observed difference for the original data is 186.81, while the observed difference for the data after removing the outliers is 91.42. The p-value is 0.5618 for the original data, and 0.334 for the data removed outliers. Finally, as 0.05 is our significance threshold, both 0.5618 and 0.3105 are greater than 0.05, then we fail to reject the null hypothesis that the average duration of power outages during 'Extreme' climate conditions is the same as during 'Normal' climate conditions. Since the p-value for the data removed outliers is less than that of the original data, it is possible that the probability of observing an absolute difference as extreme or more extreme in outlier-removed data will be less than the original data. This could be reasonable. Consequently, based on the data and the statistical test conducted, we conclude that there is no statistically significant difference in the average duration of power outages between 'Extreme' and 'Normal' climate conditions.
+By detecting the outliers, we find that the number of outliers in `Outage.duration` is 144. Then we would like to address the situation with the original data and with the data removed outilers. Therefore, we find that the observed difference for the original data is 186.81, while the observed difference for the data after removing the outliers is 91.42. The p-value is 0.5618 for the original data, and 0.334 for the data removed outliers. Finally, as 0.05 is our significance threshold, both 0.5618 and 0.3105 are greater than 0.05, then we fail to reject the null hypothesis that the average duration of power outages during 'Extreme' climate conditions is the same as during 'Normal' climate conditions. Since the p-value for the data removed outliers is less than that of the original data, it is possible that the probability of observing an absolute difference as extreme or more extreme in outlier-removed data will be less than the original data. This could be reasonable. Consequently, based on the data and the statistical test conducted, we conclude that there is no statistically significant difference in the average duration of power outages between 'Extreme' and 'Normal' climate conditions.
 
 While the statistical analysis suggests similar outage durations across climate conditions, it's important to acknowledge the role of other potential factors. For instance, external influences like cyberattacks or infrastructure vulnerabilities could affect outage durations, irrespective of climate conditions. As with any statistical analysis, this conclusion is limited to the scope of the data and the specific statistical method used. It does not rule out the possibility of climate having an impact under different conditions or in different contexts.
