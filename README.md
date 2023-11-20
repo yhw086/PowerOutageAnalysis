@@ -161,7 +161,6 @@ Based on our test result, we can see that the missingness of the power outage du
 
 ---
 ## Hypothesis Testing
-### Permutation Test
 Null Hypothesis (HO): The average duration of power outages during 'Extreme' climate conditions is the same as during 'Normal' climate conditions.
 
 Alternative Hypothesis (H1): The average duration of power outages is significantly different between 'Extreme' and 'Normal' climate conditions
