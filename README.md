@@ -122,7 +122,7 @@ To better understand and possibly reclassify this missingness as NMAR, additiona
 
 ### Missingness Dependency
 
-#### 1. `Outage.duration` and `Customers.affected`
+#### 1. `Outage.duration` and `Customers.affected` (MCAR)
 Null Hypothesis: the distribution of the number of affected customers is the same whether power outage duration is missing or not.
 
 Alternative hypothesis: the distribution of the number of affected customers is not the same whether power outage duration is missing or not.
@@ -139,7 +139,7 @@ Based on our test result, we can see that the missingness of the power outage du
 
 **Therefore, we conclude that the missingness of the power outage duration does not depend on the affected customers.**
 
-#### 2. `Outage.duration` and `Climate`
+#### 2. `Outage.duration` and `Climate` (MAR)
 
 Null Hypothesis: the distribution of the climate(normal and extreme) is the same whether power outage duration is missing or not.
 
