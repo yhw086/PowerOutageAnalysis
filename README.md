@@ -29,7 +29,6 @@ The dataset used in this study is obtained from Purdue University's laboratory a
 
 ### Data Preprocessing:
 We have replaced all occurrences of "warm" and "cold" conditions in the `Climate Category` column with "extreme," while retaining "normal" as it is, based on the Oceanic Niño Index.
-Data Analysis Process:
 
 ### Data Cleaning: 
 We begin by cleaning the dataset and conducting exploratory data analysis, including univariate and bivariate analysis, as well as exploring interesting aggregates.
