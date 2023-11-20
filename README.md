@@ -127,7 +127,7 @@ Null Hypothesis: the distribution of the number of affected customers is the sam
 
 Alternative hypothesis: the distribution of the number of affected customers is not the same whether power outage duration is missing or not.
 
-Observed Statistics: the absolute difference between Customers.affected and missing_duration.
+Test Statistics: the absolute difference between Customers.affected and missing_duration.
 
 We use a permutation test to shuffle the missingness of the number of affected customers 1000 times. We can get 1000 simulating absolute differences. Then we compare these 1000 absolute differences to the observed difference, and calculate the p-value which is the probability of observing an absolute difference as extreme or more extreme than the observed difference, assuming the null hypothesis is true. Observed statistic:  20599.733
 
@@ -145,7 +145,7 @@ Null Hypothesis: the distribution of the climate(normal and extreme) is the same
 
 Alternative hypothesis: the distribution of the climate(normal and extreme) is not the same whether power outage duration is missing or not.
 
-Observed Statistics: the Total Variation Distance(TVD) between two categorical features.
+Test Statistics: the Total Variation Distance(TVD) between two categorical features.
 
 We use the permutation test to shuffle the missingness of the climate category 1000 times. We can get 1000 simulating TVDs. Then we compare these 1000 TVDs to the observed TVD, and calculate the p-value which is the probability of observing a TVD as extreme or more extreme than the observed TVD, assuming the null hypothesis is true.
 
@@ -165,7 +165,7 @@ Null Hypothesis (HO): The average duration of power outages during 'Extreme' cli
 
 Alternative Hypothesis (H1): The average duration of power outages is significantly different between 'Extreme' and 'Normal' climate conditions
 
-Observed Statistics: the absolute difference in power outage duration between extreme climate and normal climate.
+Test Statistics: the absolute difference in power outage duration between extreme climate and normal climate.
 
 According to the analysis of EDA and univariate duration plot above, we can see that there are some outliers in the data of extreme climate and normal climate. Therefore, we would remove these outliers to make the distribution of each climate more precise.
 
