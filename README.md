@@ -4,15 +4,15 @@ This is a project for DSC80.
 By Jiayi Zhu & Yihuan Wang. 
 
 ## Project Overview
-This is a data science project on investigating how climate conditions influence the power outages in the United States.  
-The dataset used to investigate the topic can be find [here](https://www.sciencedirect.com/science/article/pii/S2352340918307182#s0015). This project is for DSC80 at UCSD.
+This is a data science project investigating how climate conditions influence power outages in the United States.  
+The dataset used to investigate the topic can be found [here](https://www.sciencedirect.com/science/article/pii/S2352340918307182#s0015). This project is for DSC80 at UCSD.
 
 ---
 ## Investigating Topic and Introduction
 Research Question
 **"Does the occurrence of 'Extreme' climate conditions (including both El Niño and La Niña), as defined by the Oceanic Niño Index,  versus 'Normal' conditions significantly influence the average duration of power outages in the United States?"**.
 
-### Introduction to the Datasets in this Study and Overview of project
+### Introduction to the Datasets in this Study and Overview of Project
 Power outages pose significant challenges and have a profound impact on our environment. Understanding the factors that influence the duration of power outages is crucial for developing effective strategies to enhance restoration times and minimize disruptions. In this project, we aim to explore the correlation between normal and extreme weather conditions and the duration of power outages.
 
 ### Data Source:
