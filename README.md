@@ -173,17 +173,18 @@ According to the analysis of EDA and univariate duration plot above, we can see 
 #### Outlier Analysis and Removal: 
 Initial analysis showed outliers in the data for both 'Extreme' and 'Normal' climates. A total of 144 outliers were identified and removed using the Interquartile Range (IQR) method. This step aimed to refine the data for a more accurate comparison of power outage durations.
 
-#### Observed Statistics Before Outlier Removal:
+Observed Statistics Before Outlier Removal:
 Observed Difference in Means: 186.81
 P-Value: 0.5618
 This initial result, with a p-value higher than the conventional alpha level of 0.05, suggested failing to reject the null hypothesis.
 
-#### Observed Statistics After Outlier Removal:
+Observed Statistics After Outlier Removal:
 Observed Difference in Means: 91.42
 P-Value: 0.3105
 Post outlier removal, the observed difference in means decreased significantly, and the p-value, while lower, still suggested failing to reject the null hypothesis.
 
-**Permutation Test:** A permutation test with 10,000 shuffles was used to assess the probability of observing an absolute difference in power outage durations as extreme as, or more extreme than, the observed differences, under the null hypothesis.
+#### Permutation Test: 
+A permutation test with 10,000 shuffles was used to assess the probability of observing an absolute difference in power outage durations as extreme as, or more extreme than, the observed differences, under the null hypothesis.
 
 Before Removing Outliers: The data suggested no significant difference in the average duration of power outages between the two climate conditions.
 <iframe src="figures/hypo1.html" width=800 height=600 frameBorder=0></iframe>
