@@ -16,7 +16,7 @@ Research Question
 Power outages pose significant challenges and have a profound impact on our environment. Understanding the factors that influence the duration of power outages is crucial for developing effective strategies to enhance restoration times and minimize disruptions. In this project, we aim to explore the correlation between normal and extreme weather conditions and the duration of power outages.
 
 ### Data Source:
-The dataset used in this study is obtained from Purdue University's laboratory and is titled "Major Power Outage Risks in the U.S.". It comprises 1,534 records, each representing a power outage event in the United States, and includes 55 columns. To focus on the relationship between climate and power outages, we have selected 8 key columns for analysis:including `Year`, `Anomaly.level`, `Climate.category`, `Cause.category`, `Cause.category.detail`, `Outage.duration`, `Customers.affected`, `Climate`. 
+The dataset used in this study is obtained from Purdue University's laboratory and is titled "Major Power Outage Risks in the U.S.". It comprises 1,534 records, each representing a power outage event in the United States, and includes 55 columns. To focus on the relationship between climate and power outages, we have selected 8 key columns for analysis: including `Year`, `Anomaly.level`, `Climate.category`, `Cause.category`, `Cause.category.detail`, `Outage.duration`, `Customers.affected`, `Climate`. 
 
 - `Year`: Indicates the year when the outage event occurred.
 - `Anomaly.level`: This represents the oceanic El Niño/La Niña (ONI) index referring to the cold and warm episodes by season. It is estimated as a 3-month running mean of ERSST.v4 SST anomalies in the Niño 3.4 region (5°N to 5°S, 120–170°W).
@@ -54,7 +54,7 @@ In order to increase the readability and narrow down the information we need fro
 
 3. **Convert type of year from float to int**: To ensure the accuracy of the 'Year' column, we convert its data type from float to int. This adjustment provides more precise information regarding the year in which each power outage event occurred. 
 
-4. **Keep only columns relevant to the research question**: Because the original dataset contains 55 variables and we decide to keep only the columns relevant to our study. We keep the columns `Year`, 
+4. **Keep only columns relevant to the research question**: Because the original dataset contains 55 variables we decided to keep only the columns relevant to our study. We keep the columns `Year`, 
 `Anomaly.level`, `Climate.category`, `Cause.category`, `Cause.category.detail`, Outage.duration`, `Customers.affected`, `Climate`.
 
 Our next step involves the removal of outliers, where we will closely examine and address any anomalous data points that may affect the accuracy and reliability of our analysis.
@@ -79,7 +79,7 @@ This is a vertical bar plot showing the distribution of Climate categories ('nor
 <iframe src="figures/uni_climate.html" width=800 height=600 frameBorder=0></iframe>
 
 #### Distribution of Outage durations
-The histogram provided shows the distribution of 'Outage Duration' on the x-axis and the corresponding 'Count' on the y-axis. From the histogram, it appears that the vast majority of power outages are of short duration, as evidenced by the tall bar at the left side of the chart. This initial bar likely represents a range of very short outage durations. As the duration increases (moving right on the x-axis), the frequency of such outages drastically decreases, indicated by lower bars. This indicates that most power outages are brief and resolved quickly, while long-lasting outages are relatively rare. Long-duration outages are much rarer, which may indicate that they are due to more severe issues and less frequent events. This suggests that we need to handle the outliers later in the analysis. 
+The histogram provided shows the distribution of 'Outage Duration' on the x-axis and the corresponding 'Count' on the y-axis. From the histogram, it appears that the vast majority of power outages are of short duration, as evidenced by the tall bar on the left side of the chart. This initial bar likely represents a range of very short outage durations. As the duration increases (moving right on the x-axis), the frequency of such outages drastically decreases, as indicated by lower bars. This indicates that most power outages are brief and resolved quickly, while long-lasting outages are relatively rare. Long-duration outages are much rarer, which may indicate that they are due to more severe issues and less frequent events. This suggests that we need to handle the outliers later in the analysis. 
 
 <iframe src="figures/uni_duration.html" width=800 height=600 frameBorder=0></iframe>
 
@@ -88,7 +88,7 @@ The histogram provided shows the distribution of 'Outage Duration' on the x-axis
 #### Outage Duration Count Across Anomaly Levels
 The line chart titled "Outage Duration Count Across Anomaly Levels" plots the count of power outage durations against various anomaly levels. The x-axis represents the anomaly levels, likely measured by the Oceanic Niño Index, with values ranging from less negative (La Niña conditions) to positive (El Niño conditions). The y-axis quantifies the number of outages recorded at each of these levels.
 
-From the chart, we can observe a significant peak around the anomaly level of -0.5, suggesting a high count of outages when conditions are transitioning towards La Niña. This peak indicates that the onset of such climatic conditions might be associated with an increased number of power outages. Conversely, at higher anomaly levels indicative of El Niño conditions, the count of outages appears to be relatively. Overall, it appears that there are relatively more major outages hapening in normal climate conditions. This chart does suggest a potential correlation between the climatic conditions expressed by anomaly levels and the frequency of power outages. 
+From the chart, we can observe a significant peak around the anomaly level of -0.5, suggesting a high count of outages when conditions are transitioning towards La Niña. This peak indicates that the onset of such climatic conditions might be associated with an increased number of power outages. Conversely, at higher anomaly levels indicative of El Niño conditions, the count of outages appears to be relatively low. Overall, it appears that there are relatively more major outages happening in normal climate conditions. This chart does suggest a potential correlation between the climatic conditions expressed by anomaly levels and the frequency of power outages. 
 
 <iframe src="figures/bivar_line.html" width=800 height=600 frameBorder=0></iframe>
 
@@ -104,7 +104,7 @@ However, the chart also shows variability across years. Some years have a relati
 
 Below is a table that presents aggregated statistics of power outage durations across different climate categories—'cold', 'normal', and 'warm'. These categories relate to temperature anomalies such as those associated with El Niño and La Niña phenomena. The `Mean Duration` and `Median Duration` offer insights into the central tendency of outages, with mean values indicating the average duration and median values providing a midpoint that is less affected by extreme outliers. The `Standard Deviation` suggests the variability of the outage durations within each climate category, with larger values indicating more dispersed data. `Count of Outages` reflects the total number of recorded outages, which could indicate the frequency or likelihood of outages in each climate state. The `Min Duration` and `Max Duration` give the range of outage durations, showing the shortest and longest outages experienced in each category. 
 
-The 'warm' category has the highest mean duration at approximately 2817 minutes. The 'cold' category has the longest maximum outage recorded at over 108,653 minutes. In contrast, the 'normal' climate category has the lowest mean duration of around 2531 minutes and a substantially lower maximum duration than the 'cold' category, indicating that outages during normal climate conditions might not last as long. Interestingly, the 'normal' category has the highest count of outages at 730, which could indicate a greater frequency of outages but of shorter duration. All categories have a minimum duration of 0 minutes, which could represent very brief outages or potentially data entry errors. 
+The 'warm' category has the highest mean duration at approximately 2817 minutes. The 'cold' category has the longest maximum outage recorded at over 108,653 minutes. In contrast, the 'normal' climate category has the lowest mean duration of around 2531 minutes and substantially lower maximum duration than the 'cold' category, indicating that outages during normal climate conditions might not last as long. Interestingly, the 'normal' category has the highest count of outages at 730, which could indicate a greater frequency of outages but of shorter duration. All categories have a minimum duration of 0 minutes, which could represent very brief outages or potential data entry errors. 
 
 | Climate Category | Mean Duration | Median Duration | Standard Deviation | Count of Outages | Min Duration | Max Duration |
 |------------------|---------------|-----------------|--------------------|------------------|--------------|--------------|
@@ -116,9 +116,9 @@ The 'warm' category has the highest mean duration at approximately 2817 minutes.
 ---
 ## Assessment of Missingness
 ### NMAR Analysis
-We believe that the `Cause.category.detail` column in the power outage dataset is a prime candidate for data that might be Not Missing at Random (NMAR). This column contains detailed descriptions of the event categories causing the major power outages. This dataset was aquired by using different publicly available datasets. We believe that some of the raw datsets containing information regarding detailed cause categories might be missing for sensitive or controversial outages (e.g., due to sabotage or internal failures) that a utility company might not want to disclose. Utility companies may be inclined to withhold specific details that could lead to public relations issues, or reveal vulnerabilities in their infrastructure. 
+We believe that the `Cause.category.detail` column in the power outage dataset is a prime candidate for data that might be Not Missing at Random (NMAR). This column contains detailed descriptions of the event categories causing the major power outages. This dataset was acquired by using different publicly available datasets. We believe that some of the raw data containing information regarding detailed cause categories might be missing for sensitive or controversial outages (e.g., due to sabotage or internal failures) that a utility company might not want to disclose. Utility companies may be inclined to withhold specific details that could lead to public relations issues, or reveal vulnerabilities in their infrastructure. 
 
-To better understand and possibly reclassify this missingness as MAR, additional data would be necessary. This could include internal reports, regulatory filings or third-party investigations. Such information might provide the necessary context to determine if the missingness is related to the causes of outages or if it can be explained by observed variables within the dataset. 
+To better understand and possibly reclassify this missingness as MAR, additional data would be necessary. This could include internal reports, regulatory filings, or third-party investigations. Such information might provide the necessary context to determine if the missingness is related to the causes of outages or if it can be explained by observed variables within the dataset. 
 
 ### Missingness Dependency
 
@@ -129,7 +129,7 @@ Alternative hypothesis: the distribution of the number of affected customers is 
 
 Observed Statistics: the absolute difference between Customers.affected and missing_duration.
 
-We use permutation test to shuffle the missingness of number of affected customers 1000 times. We can get 1000 simulating absolute differences. Then we compare these 1000 absolute differences to the observed difference, and calculate the p-value that is the probability of observing a absolute difference as extreme or more extreme than the observed difference, assuming the null hypothesis is true. Observed statistic:  20599.733
+We use a permutation test to shuffle the missingness of the number of affected customers 1000 times. We can get 1000 simulating absolute differences. Then we compare these 1000 absolute differences to the observed difference, and calculate the p-value which is the probability of observing an absolute difference as extreme or more extreme than the observed difference, assuming the null hypothesis is true. Observed statistic:  20599.733
 
 Finally, we get the p-value, which is 0.68. As 0.05 is our significance threshold, since 0.68 > 0.05, we fail to reject the null hypothesis that the distribution of the affected customers is the same whether power outage duration is missing or not. The result suggests that the distribution of the number of customers affected is not statistically different between the groups with missing and non-missing outage duration data. In essence, the missingness of power outage duration data does not appear to be related to the number of customers affected.
 
@@ -147,7 +147,7 @@ Alternative hypothesis: the distribution of the climate(normal and extreme) is n
 
 Observed Statistics: the Total Variation Distance(TVD) between two categorical features.
 
-We use permutation test to shuffle the missingness of climate category 1000 times. We can get 1000 simulating TVDs. Then we compare these 1000 TVDs to the observed TVD, and calculate the p-value that is the probability of observing a TVD as extreme or more extreme than the observed TVD, assuming the null hypothesis is true.
+We use the permutation test to shuffle the missingness of the climate category 1000 times. We can get 1000 simulating TVDs. Then we compare these 1000 TVDs to the observed TVD, and calculate the p-value which is the probability of observing a TVD as extreme or more extreme than the observed TVD, assuming the null hypothesis is true.
 
 Observed statistic: 0.20887
 
@@ -166,9 +166,9 @@ Null Hypothesis (HO): The average duration of power outages during 'Extreme' cli
 
 Alternative Hypothesis (H1): The average duration of power outages is significantly different between 'Extreme' and 'Normal' climate conditions
 
-Observed Statistics: the absolute difference of power outage duration between extreme climate and normal climate.
+Observed Statistics: the absolute difference in power outage duration between extreme climate and normal climate.
 
-According to the analysis on EDA and univariate duration plot above, we can get that there are some outliers in the data of extreme climate and normal climate. Therefore, we would remove these outliers to make the distribution of each climate more precisely.
+According to the analysis of EDA and univariate duration plot above, we can see that there are some outliers in the data of extreme climate and normal climate. Therefore, we would remove these outliers to make the distribution of each climate more precise.
 
 #### Outlier Analysis and Removal: 
 Initial analysis showed outliers in the data for both 'Extreme' and 'Normal' climates. A total of 144 outliers were identified and removed using the Interquartile Range (IQR) method. This step aimed to refine the data for a more accurate comparison of power outage durations.
@@ -187,13 +187,13 @@ Permutation Test: A permutation test with 10,000 shuffles was used to assess the
 
 Before Removing Outliers: The data suggested no significant difference in the average duration of power outages between the two climate conditions.
 <iframe src="figures/hypo1.html" width=800 height=600 frameBorder=0></iframe>
-After Removing Outliers: The decrease in the observed difference and the p-value further supports the conclusion that there is no statistically significant difference in power outage durations between 'Extreme' and 'Normal' climate conditions.
+After Removing Outliers: The decrease in the observed difference and the p-value further support the conclusion that there is no statistically significant difference in power outage durations between 'Extreme' and 'Normal' climate conditions.
 The analysis, therefore, fails to reject the null hypothesis in both cases. 
 
 <iframe src="figures/hypo.html" width=800 height=600 frameBorder=0></iframe>
 
 
 ## Conclusion:
-By detecting the outliers, we find that the number of outliers in Outage.duration is 144. Then we would like to address the situation with the original data and with the data removed outilers. Therefore, we find that the observed difference for the original data is 186.81, while the observed diffrence for the data removed the outliers is 91.42. The p-value is 0.5618 for the original data, and 0.334 for the data removed outliers. Fianlly, as 0.05 is our significance threshold, both 0.5618 and 0.3105 are greater than the 0.05, then we fail to reject the null hypothesis that the average duration of power outages during 'Extreme' climate conditions is the same as during 'Normal' climate conditions. Since the p-value for the data removed outliers is less than that of the original data, it is possible that probability of observing a absolute difference as extreme or more extreme in outlier-removed data will be less than the original data. This could be resonable. Consequently, based on the data and the statistical test conducted, we conclude that there is no statistically significant difference in the average duration of power outages between 'Extreme' and 'Normal' climate conditions.
+By detecting the outliers, we find that the number of outliers in Outage.duration is 144. Then we would like to address the situation with the original data and with the data removed outilers. Therefore, we find that the observed difference for the original data is 186.81, while the observed difference for the data after removing the outliers is 91.42. The p-value is 0.5618 for the original data, and 0.334 for the data removed outliers. Finally, as 0.05 is our significance threshold, both 0.5618 and 0.3105 are greater than 0.05, then we fail to reject the null hypothesis that the average duration of power outages during 'Extreme' climate conditions is the same as during 'Normal' climate conditions. Since the p-value for the data removed outliers is less than that of the original data, it is possible that the probability of observing an absolute difference as extreme or more extreme in outlier-removed data will be less than the original data. This could be reasonable. Consequently, based on the data and the statistical test conducted, we conclude that there is no statistically significant difference in the average duration of power outages between 'Extreme' and 'Normal' climate conditions.
 
 While the statistical analysis suggests similar outage durations across climate conditions, it's important to acknowledge the role of other potential factors. For instance, external influences like cyberattacks or infrastructure vulnerabilities could affect outage durations, irrespective of climate conditions. As with any statistical analysis, this conclusion is limited to the scope of the data and the specific statistical method used. It does not rule out the possibility of climate having an impact under different conditions or in different contexts.
